@@ -1,0 +1,40 @@
+;
+; Copyright © 2021 Peter Monks
+;
+; This file is part of pmonks/cljig
+;
+; pmonks/cljig is free software: you can redistribute it and/or modify
+; it under the terms of the GNU Affero General Public License as published by
+; the Free Software Foundation, either version 3 of the License, or
+; (at your option) any later version.
+;
+; pmonks/cljig is distributed in the hope that it will be useful,
+; but WITHOUT ANY WARRANTY; without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+; GNU Affero General Public License for more details.
+;
+; You should have received a copy of the GNU Affero General Public License
+; along with pmonks/cljig.  If not, see <https://www.gnu.org/licenses/>.
+;
+
+{:deps {org.clojure/clojure          {:mvn/version "1.10.3"}
+        org.clojure/tools.deps.alpha {:mvn/version "0.12.1013"}
+        org.clojure/tools.namespace  {:mvn/version "1.1.0"}
+        org.github.pmonks/find-deps  {:git/url "https://github.com/pmonks/find-deps" :sha "2b467e15f0f3747bf287133050073a1d0455389b"}}
+ :aliases {
+    ; clj -M:check
+    :check    {:extra-deps {athos/clj-check {:git/url "https://github.com/athos/clj-check.git"
+                                             :sha     "518d5a1cbfcd7c952f548e6dbfcb9a4a5faf9062"}}
+               :main-opts  ["-m" "clj-check.check"]}
+    ; clj -M:outdated
+    :outdated {:extra-deps {com.github.liquidz/antq {:mvn/version "0.16.2"}}
+               :main-opts ["-m" "antq.core"]}
+    ; clj -M:kondo
+    :kondo
+      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.08.06"}}
+       :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]}
+    ; clj -M:eastwood
+    :eastwood
+      {:extra-deps {jonase/eastwood {:mvn/version "0.9.6"}}
+       :main-opts  ["-m" "eastwood.lint" {:source-paths ["src" "resources"]}]}
+    }}
