@@ -2,7 +2,7 @@
 # cljig
 
 A little Clojure [jig](https://en.wikipedia.org/wiki/Jig_(tool)) for discovering, evaluating, and prototyping 3rd party
-Clojure and Java libraries, for eventual use in your own project(s).
+Clojure and Java libraries, for eventual use in your own project(s), all from the REPL.
 
 ## Trying it Out
 Clone the repo, then run:

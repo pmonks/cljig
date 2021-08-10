@@ -18,7 +18,7 @@
 ;
 
 (ns cljig.core
-  "A little Clojure jig for discovering, evaluating, and prototyping 3rd party Clojure and Java libraries, for eventual use in your own project(s)."
+  "A little Clojure jig for discovering, evaluating, and prototyping 3rd party Clojure and Java libraries, for eventual use in your own project(s), all from the REPL."
   (:require [clojure.string               :as s]
             [clojure.java.io              :as io]
             [clojure.repl                 :as repl]
