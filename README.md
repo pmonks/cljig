@@ -1,8 +1,8 @@
 
 # cljig
 
-A little project intended to act as a [jig](https://en.wikipedia.org/wiki/Jig_(tool)) for discovering, evaluating,
-and prototyping 3rd party Clojure and Java libraries, for eventual use in your own project(s).
+A little Clojure [jig](https://en.wikipedia.org/wiki/Jig_(tool)) for discovering, evaluating, and prototyping 3rd party
+Clojure and Java libraries, for eventual use in your own project(s).
 
 ## Trying it Out
 Clone the repo, then run:
@@ -24,5 +24,6 @@ This will load some useful namespaces, display some help, the drop you in a REPL
 Copyright © 2021 Peter Monks
 
 This work is licensed under the [GNU Affero General Public License v3.0 or later](http://www.gnu.org/licenses/agpl-3.0.html).
+If this is problematic for you or your employer, feel free to reach out.
 
 SPDX-License-Identifier: [AGPL-3.0-or-later](https://spdx.org/licenses/AGPL-3.0-or-later.html)
