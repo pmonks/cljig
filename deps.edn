@@ -23,10 +23,11 @@
         org.slf4j/jcl-over-slf4j       {:mvn/version "1.7.32"}
         org.slf4j/log4j-over-slf4j     {:mvn/version "1.7.32"}
         org.slf4j/jul-to-slf4j         {:mvn/version "1.7.32"}
-;        org.clojure/tools.deps.alpha   {:mvn/version "0.12.1013"}
-        org.clojure/tools.deps.alpha   {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}
+        org.clojure/tools.deps.alpha   {:mvn/version "0.12.1013"}
+;        org.clojure/tools.deps.alpha   {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
         org.clojure/tools.namespace    {:mvn/version "1.1.0"}
-        org.github.pmonks/find-deps    {:git/url "https://github.com/pmonks/find-deps" :sha "2b467e15f0f3747bf287133050073a1d0455389b"}}
+        org.github.pmonks/find-deps    {:git/url "https://github.com/pmonks/find-deps" :sha "2b467e15f0f3747bf287133050073a1d0455389b"}
+        clj-commons/pomegranate        {:mvn/version "1.2.1"}}
  :aliases {
     ; clj -M:check
     :check    {:extra-deps {athos/clj-check {:git/url "https://github.com/athos/clj-check.git"

@@ -21,7 +21,9 @@
   "cljig - fns related to dependencies"
   (:require [clojure.java.io               :as io]
             [clojure.tools.deps.alpha      :as tda]
-            [clojure.tools.deps.alpha.repl :as tdar]
+;            [clojure.tools.deps.alpha.repl :as tdar]   ; Awaiting functional add-libs impl
+            [cemerick.pomegranate          :as pom]     ; While we wait for add-libs to work
+            [cemerick.pomegranate.aether   :as poma]
             [clojure.tools.namespace.find  :as tnsf]
             [find-deps.core                :as fd]))
 
@@ -56,7 +58,22 @@ Notes:
         resolved-deps (select-keys (tda/resolve-deps tda-deps nil) (keys deps))]
     (apply merge (map (fn [[dep attr]] {dep (assoc attr :nses (vec (tnsf/find-namespaces (map io/file (:paths attr)))))}) resolved-deps))))
 
+(comment   "Waiting for tools.deps.alpha to have a functioning version of add-libs..."
 (defn load
   "Loads the given deps (in tools.deps.alpha deps map format) into the REPL's classloader, downloading their artifacts (and their dependencies) first if necessary."
   [deps]
   (tdar/add-libs deps))
+)
+
+
+; In the meantime, we fall back on pomegranate (which will fail for anything but Maven-hosted artifacts)...
+(defn- deps-to-coords
+  [deps]
+  (vec (map #(vec [% (:mvn/version (get deps %))]) (keys deps))))
+
+(def ^:private repos (merge poma/maven-central {"clojars" "https://clojars.org/repo"}))
+
+(defn load
+  [deps]
+  (pom/add-dependencies :coordinates  (deps-to-coords deps)
+                        :repositories repos))
