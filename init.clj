@@ -17,6 +17,18 @@
 ; along with pmonks/cljig.  If not, see <https://www.gnu.org/licenses/>.
 ;
 
+; Because java.util.logging is a hot mess
+(org.slf4j.bridge.SLF4JBridgeHandler/removeHandlersForRootLogger)
+(org.slf4j.bridge.SLF4JBridgeHandler/install)
+
+; Because Java's default exception behaviour in threads other than main is a hot mess
+(Thread/setDefaultUncaughtExceptionHandler
+ (reify Thread$UncaughtExceptionHandler
+   (uncaughtException [_ t e]
+     (binding [*out* *err*]
+       (println (str "Uncaught exception thrown in thread " (.getName t)))
+       (.printStackTrace e *err*)))))
+
 ; Handy default imports for code exploration
 (require '[clojure.string           :as s])
 (require '[clojure.set              :as set])
@@ -31,20 +43,26 @@
 (require '[cljig.deps  :as jdp] :reload-all)
 (require '[cljig.docs  :as jdc] :reload-all)
 
-(println "\nThese namespaces are loaded and available to you via these aliases:\n")
-(println "  s    - clojure.string")
-(println "  set  - clojure.set")
-(println "  pp   - clojure.pprint")
-(println "  io   - clojure.java.io")
-(println "  jd   - clojure.java.javadoc")
-(println "  repl - clojure.repl")
-(println "  rf   - clojure.reflect")
-(println "  tda  - clojure.tools.deps.alpha")
-(println)
-(println "  jw   - cljig.web")
-(println "  jdp  - cljig.deps")
-(println "  jdc  - cljig.docs")
-(println)
-(println "Try starting out by using the (jdc/ns-docs `ns) fn to learn more about these (or any other) namespaces.")
-(println)
-(flush)
+(defn help
+  []
+  (println "\nThese namespaces are loaded and available to you via these aliases:\n")
+  (println "  s    - clojure.string")
+  (println "  set  - clojure.set")
+  (println "  pp   - clojure.pprint")
+  (println "  io   - clojure.java.io")
+  (println "  jd   - clojure.java.javadoc")
+  (println "  repl - clojure.repl")
+  (println "  rf   - clojure.reflect")
+  (println "  tda  - clojure.tools.deps.alpha")
+  (println)
+  (println "  jw   - cljig.web")
+  (println "  jdp  - cljig.deps")
+  (println "  jdc  - cljig.docs")
+  (println)
+  (println "Try starting out by using the (jdc/ns-docs `ns) fn to learn more about these (or any other) namespaces.")
+  (println)
+  (println "To get this message back, invoke the (help) fn at any time.")
+  (println)
+  (flush))
+
+(help)
