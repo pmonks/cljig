@@ -39,9 +39,9 @@
 (require '[clojure.reflect          :as rf])
 (require '[clojure.tools.deps.alpha :as tda])
 
-(require '[cljig.web   :as jw]  :reload-all)
-(require '[cljig.deps  :as jdp] :reload-all)
-(require '[cljig.docs  :as jdc] :reload-all)
+(require '[cljig.web   :as web]  :reload-all)
+(require '[cljig.deps  :as deps] :reload-all)
+(require '[cljig.docs  :as docs] :reload-all)
 
 (defn help
   []
@@ -55,11 +55,11 @@
   (println "  rf   - clojure.reflect")
   (println "  tda  - clojure.tools.deps.alpha")
   (println)
-  (println "  jw   - cljig.web")
-  (println "  jdp  - cljig.deps")
-  (println "  jdc  - cljig.docs")
+  (println "  web  - cljig.web")
+  (println "  deps - cljig.deps")
+  (println "  docs - cljig.docs")
   (println)
-  (println "Try starting out by using the (jdc/ns-docs `ns) fn to learn more about these (or any other) namespaces.")
+  (println "Try starting out by using the (docs/ns-docs `ns) fn to learn more about these (or any other) namespaces.")
   (println)
   (println "To get this message back, invoke the (help) fn at any time.")
   (println)

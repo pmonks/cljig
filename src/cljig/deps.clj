@@ -25,9 +25,9 @@
             [clojure.tools.namespace.find  :as tnsf]
             [find-deps.core                :as fd]))
 
-(defn repos
+(defn search
   "Returns up to max-results potential Clojure libraries hosted in clojars or Maven Central, that match the given search term.  Result is in tools.deps.alpha dep maps format."
-  ([term] (repos term 1))
+  ([term] (search term 1))
   ([term max-results]
    (apply fd/query* [term {:sources [:clojars :mvn]
                            :rank    :fuzzy
@@ -56,7 +56,7 @@ Notes:
         resolved-deps (select-keys (tda/resolve-deps tda-deps nil) (keys deps))]
     (apply merge (map (fn [[dep attr]] {dep (assoc attr :nses (vec (tnsf/find-namespaces (map io/file (:paths attr)))))}) resolved-deps))))
 
-(defn load-deps
+(defn load
   "Loads the given deps (in tools.deps.alpha deps map format) into the REPL's classloader, downloading their artifacts (and their dependencies) first if necessary."
   [deps]
   (tdar/add-libs deps))
