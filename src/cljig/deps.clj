@@ -19,7 +19,8 @@
 
 (ns cljig.deps
   "cljig - fns related to dependencies"
-  (:require [clojure.java.io               :as io]
+  (:require [clojure.string                :as s]
+            [clojure.java.io               :as io]
             [clojure.tools.deps.alpha      :as tda]
 ;            [clojure.tools.deps.alpha.repl :as tdar]   ; Awaiting functional add-libs impl
             [cemerick.pomegranate          :as pom]     ; While we wait for add-libs to work
@@ -65,13 +66,33 @@ Notes:
   (tdar/add-libs deps))
 )
 
+(defn- jitpack-gav
+  "Attempts to convert a maven GA t"
+  [ga {:keys [git-url sha] :as v}]
+  (if (and git-url
+           sha
+           (s/starts-with? git-url "https://github.com/"))
+    [(symbol (str "com.github." (s/replace (s/replace git-url "https://github.com/" "") ".git" ""))) sha]
+    (println "⚠️ Unknown dep type for artifact" (str ga ":") v)))
 
-; In the meantime, we fall back on pomegranate (which will fail for anything but Maven-hosted artifacts)...
-(defn- deps-to-coords
+(defn- dep-to-coord
+  "Converts a tools.deps dep into a Leiningen style coord e.g.
+
+  {http-kit/http-kit {:mvn/version \"2.5.0\"}}   -->  [http-kit/http-kit \"2.5.0\"]
+
+  Will also attempt to convert Git+SHA deps that point to github.com to jitpack.io equivalents (since Pomegranate can't resolve Git+SHA deps natiovely).  YMMV."
+  [[ga v]]
+  (if-let [{maven-version :mvn/version} v]
+    [ga maven-version]     ; It's a standard Maven-style GAV
+    (jitpack-gav ga v)))   ; It's something else (e.g. git+sha) - attempt to convert to jitpack format
+
+; While we wait for tools.deps add-libs to become functional, we fall back on pomegranate (which will fail for anything but Maven-hosted artifacts and some Github deps)...
+(defn deps-to-coords
+  "Attempt to convert a tools.deps deps map to a Leiningen coords vector."
   [deps]
-  (vec (map #(vec [% (:mvn/version (get deps %))]) (keys deps))))
+  (vec (filter identity (map dep-to-coord deps))))
 
-(def ^:private repos (merge poma/maven-central {"clojars" "https://clojars.org/repo"}))
+(def ^:private repos (merge poma/maven-central {"clojars" "https://clojars.org/repo" "jitpack" "https://jitpack.io"}))
 
 (defn load
   [deps]
