@@ -68,11 +68,11 @@ Notes:
 
 (defn- jitpack-gav
   "Attempts to convert a maven GA t"
-  [ga {:keys [git-url sha] :as v}]
-  (if (and git-url
+  [ga {:keys [:git/url sha] :as v}]
+  (if (and url
            sha
-           (s/starts-with? git-url "https://github.com/"))
-    [(symbol (str "com.github." (s/replace (s/replace git-url "https://github.com/" "") ".git" ""))) sha]
+           (s/starts-with? url "https://github.com/"))
+    [(symbol (str "com.github." (s/replace (s/replace url "https://github.com/" "") ".git" ""))) sha]
     (println "⚠️ Unknown dep type for artifact" (str ga ":") v)))
 
 (defn- dep-to-coord
@@ -82,7 +82,7 @@ Notes:
 
   Will also attempt to convert Git+SHA deps that point to github.com to jitpack.io equivalents (since Pomegranate can't resolve Git+SHA deps natiovely).  YMMV."
   [[ga v]]
-  (if-let [{maven-version :mvn/version} v]
+  (if-let [maven-version (:mvn/version v)]
     [ga maven-version]     ; It's a standard Maven-style GAV
     (jitpack-gav ga v)))   ; It's something else (e.g. git+sha) - attempt to convert to jitpack format
 
