@@ -29,10 +29,13 @@ Downloading: clj-commons/multigrep/0.5.0/multigrep-0.5.0.jar from clojars
 user=> ; What namespaces does it offer?
 user=> (deps/nses (deps/search "multigrep"))
 #:clj-commons{multigrep {:mvn/version "0.5.0", :deps/manifest :mvn, :parents #{[]}, :paths ["~/.m2/repository/clj-commons/multigrep/0.5.0/multigrep-0.5.0.jar"], :nses [multigrep.core]}}
+user=> ; Lets make that a bit more readable...
+user=> (for [[k v] (deps/nses (deps/search "multigrep"))] [k (:nses v)])
+([clj-commons/multigrep [multigrep.core]])
 user=> ; Require the library's core namespace...
 user=> (require '[multigrep.core :as mg])
 nil
-user=> ; Pull up the namespace's docs (though we can also see them in the browser window we opened above)...
+user=> ; Pull up the namespace's docstrings
 user=> (docs/namespace 'multigrep.core)
 -------------------------
 multigrep.core
