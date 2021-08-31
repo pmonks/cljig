@@ -15,14 +15,17 @@ This will load some useful namespaces, display some help, the drop you in a REPL
 
 ### Example
 ```clojure
-user=> (web/search-cljdoc "grep")
+user=> (web/search-github "grep")
 nil
-user=> ; Browser opens, showing libraries that match "grep" known to cljdocs.io - clj-commons/multigrep catches our eye...
+user=> ; Browser opens, showing Clojure libraries that match "grep" known to GitHub
+user=> ; clj-commons/multigrep catches our eye...
 user=> (deps/search "multigrep")
 {:deps #:clj-commons{multigrep #:mvn{:version "0.5.0"}}}
 user=> ; Looks nice - let's load the library and have a play
 user=> (deps/load (deps/search "multigrep"))
-; -------------------- 8< -------------------- Lots of logging output elided here... -------------------- >8 -------------------- 
+Downloading: clj-commons/multigrep/0.5.0/multigrep-0.5.0.pom from clojars
+Downloading: clj-commons/multigrep/0.5.0/multigrep-0.5.0.jar from clojars
+#object[clojure.core$future_call$reify__8477 0x4f9871a2 {:status :pending, :val nil}]
 user=> ; What namespaces does it offer?
 user=> (deps/nses (deps/search "multigrep"))
 #:clj-commons{multigrep {:mvn/version "0.5.0", :deps/manifest :mvn, :parents #{[]}, :paths ["~/.m2/repository/clj-commons/multigrep/0.5.0/multigrep-0.5.0.jar"], :nses [multigrep.core]}}
