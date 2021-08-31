@@ -18,17 +18,17 @@
 ;
 
 {:paths ["src" "resources"]
- :deps {org.clojure/clojure            {:mvn/version "1.10.3"}
-        org.clojure/tools.logging      {:mvn/version "1.1.0"}
-        ch.qos.logback/logback-classic {:mvn/version "1.2.5"}
-        org.slf4j/jcl-over-slf4j       {:mvn/version "1.7.32"}
-        org.slf4j/log4j-over-slf4j     {:mvn/version "1.7.32"}
-        org.slf4j/jul-to-slf4j         {:mvn/version "1.7.32"}
-        org.clojure/tools.deps.alpha   {:mvn/version "0.12.1026"}
-;        org.clojure/tools.deps.alpha   {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
-        org.clojure/tools.namespace    {:mvn/version "1.1.0"}
-        org.github.pmonks/find-deps    {:git/url "https://github.com/pmonks/find-deps" :sha "c084830ed73e317ce93c61339986a2082afd3256"}
-        clj-commons/pomegranate        {:mvn/version "1.2.1"}}
+ :deps {org.clojure/clojure               {:mvn/version "1.10.3"}
+        org.clojure/tools.logging         {:mvn/version "1.1.0"}
+        ch.qos.logback/logback-classic    {:mvn/version "1.2.5"}
+        org.slf4j/jcl-over-slf4j          {:mvn/version "1.7.32"}
+        org.slf4j/log4j-over-slf4j        {:mvn/version "1.7.32"}
+        org.slf4j/jul-to-slf4j            {:mvn/version "1.7.32"}
+        org.clojure/tools.deps.alpha      {:mvn/version "0.12.1036"}
+;        org.clojure/tools.deps.alpha      {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
+        org.clojure/tools.namespace       {:mvn/version "1.1.0"}
+        org.github.pmonks/find-deps       {:git/url "https://github.com/pmonks/find-deps"       :git/sha "c084830ed73e317ce93c61339986a2082afd3256"}
+        org.github.lambdaisland/classpath {:git/url "https://github.com/lambdaisland/classpath" :git/sha "ff96d4f07d5b12b2fe0d8b206eb4a3713ad222d6"}}
  :aliases {
     ; clj -M:check
     :check    {:extra-deps {athos/clj-check {:git/url "https://github.com/athos/clj-check.git"
@@ -43,6 +43,6 @@
        :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]}
     ; clj -M:eastwood
     :eastwood
-      {:extra-deps {jonase/eastwood {:mvn/version "0.9.6"}}
+      {:extra-deps {jonase/eastwood {:mvn/version "0.9.9"}}
        :main-opts  ["-m" "eastwood.lint" {:source-paths ["src" "resources"]}]}
     }}

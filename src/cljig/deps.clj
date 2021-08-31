@@ -19,12 +19,10 @@
 
 (ns cljig.deps
   "cljig - fns related to dependencies"
-  (:require [clojure.string                :as s]
-            [clojure.java.io               :as io]
+  (:require [clojure.java.io               :as io]
             [clojure.tools.deps.alpha      :as tda]
 ;            [clojure.tools.deps.alpha.repl :as tdar]   ; Awaiting functional add-libs impl
-            [cemerick.pomegranate          :as pom]     ; While we wait for add-libs to work
-            [cemerick.pomegranate.aether   :as poma]
+            [lambdaisland.classpath        :as cp]      ; While we wait for add-libs to become functional...
             [clojure.tools.namespace.find  :as tnsf]
             [find-deps.core                :as fd]))
 
@@ -53,48 +51,20 @@ Notes:
   * As currently written, only supports libraries hosted on Maven central, Clojars, and GitHub. I think this is easy to change, by accepting a full deps.edn map, instead of just the :deps map within it.
   * As currently written, doesn't maintain the association between individual JAR files / directories within a dependency and namespace(s). This would be easy enough to do, but complicates the output and didn't seem necessary."
   [deps]
-  (let [tda-deps      {:mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
-                                   "clojars" {:url "https://repo.clojars.org/"}}
-                       :deps deps}
-        resolved-deps (select-keys (tda/resolve-deps tda-deps nil) (keys deps))]
+  (let [tda-deps      (merge {:mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
+                                          "clojars" {:url "https://repo.clojars.org/"}}}
+                             deps)
+        resolved-deps (select-keys (tda/resolve-deps tda-deps nil) (keys (:deps deps)))]
     (apply merge (map (fn [[dep attr]] {dep (assoc attr :nses (vec (tnsf/find-namespaces (map io/file (:paths attr)))))}) resolved-deps))))
 
 (comment   "Waiting for tools.deps.alpha to have a functioning version of add-libs..."
 (defn load
-  "Loads the given deps (in tools.deps.alpha deps map format) into the REPL's classloader, downloading their artifacts (and their dependencies) first if necessary."
+  "Loads the given deps (a map in tools.deps.alpha deps map format) into the REPL's classloader, downloading their artifacts (and their dependencies) first if necessary."
   [deps]
   (tdar/add-libs deps))
 )
 
-(defn- jitpack-gav
-  "Attempts to convert a maven GA t"
-  [ga {:keys [:git/url sha] :as v}]
-  (if (and url
-           sha
-           (s/starts-with? url "https://github.com/"))
-    [(symbol (str "com.github." (s/replace (s/replace url "https://github.com/" "") ".git" ""))) sha]
-    (println "⚠️ Unknown dep type for artifact" (str ga ":") v)))
-
-(defn- dep-to-coord
-  "Converts a tools.deps dep into a Leiningen style coord e.g.
-
-  {http-kit/http-kit {:mvn/version \"2.5.0\"}}   -->  [http-kit/http-kit \"2.5.0\"]
-
-  Will also attempt to convert Git+SHA deps that point to github.com to jitpack.io equivalents (since Pomegranate can't resolve Git+SHA deps natiovely).  YMMV."
-  [[ga v]]
-  (if-let [maven-version (:mvn/version v)]
-    [ga maven-version]     ; It's a standard Maven-style GAV
-    (jitpack-gav ga v)))   ; It's something else (e.g. git+sha) - attempt to convert to jitpack format
-
-; While we wait for tools.deps add-libs to become functional, we fall back on pomegranate (which will fail for anything but Maven-hosted artifacts and some Github deps)...
-(defn deps-to-coords
-  "Attempt to convert a tools.deps deps map to a Leiningen coords vector."
-  [deps]
-  (vec (filter identity (map dep-to-coord deps))))
-
-(def ^:private repos (merge poma/maven-central {"clojars" "https://clojars.org/repo" "jitpack" "https://jitpack.io"}))
-
 (defn load
+  "Loads the given deps (a map in tools.deps.alpha deps map format) into the REPL's classloader, downloading their artifacts (and their dependencies) first if necessary."
   [deps]
-  (pom/add-dependencies :coordinates  (deps-to-coords deps)
-                        :repositories repos))
+  (cp/update-classpath! {:extra deps}))

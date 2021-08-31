@@ -21,10 +21,10 @@ user=> ; Browser opens, showing libraries that match "grep" known to cljdocs.io 
 user=> (deps/search "multigrep")
 {:deps #:clj-commons{multigrep #:mvn{:version "0.5.0"}}}
 user=> ; Looks nice - let's load the library and have a play
-user=> (deps/load (:deps (deps/search "multigrep")))
+user=> (deps/load (deps/search "multigrep"))
 ; -------------------- 8< -------------------- Lots of logging output elided here... -------------------- >8 -------------------- 
 user=> ; What namespaces does it offer?
-user=> (deps/nses (:deps (deps/search "multigrep")))
+user=> (deps/nses (deps/search "multigrep"))
 #:clj-commons{multigrep {:mvn/version "0.5.0", :deps/manifest :mvn, :parents #{[]}, :paths ["~/.m2/repository/clj-commons/multigrep/0.5.0/multigrep-0.5.0.jar"], :nses [multigrep.core]}}
 user=> ; Require the library's core namespace...
 user=> (require '[multigrep.core :as mg])
