@@ -59,7 +59,7 @@
   (println "  deps - cljig.deps")
   (println "  docs - cljig.docs")
   (println)
-  (println "Try starting out by using the (docs/namespace `ns) fn to learn more about these (or any other) namespaces.")
+  (println "Try starting out by using the (docs/namespace 'fully-qualified.namespace) fn to learn more about these (or any other) namespaces.")
   (println)
   (println "To get this message back, invoke the (help) fn at any time.")
   (println)
