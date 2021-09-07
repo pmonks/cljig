@@ -1,4 +1,4 @@
-[![Build](https://github.com/pmonks/cljig/workflows/build/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Abuild) [![Lint](https://github.com/pmonks/cljig/workflows/lint/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Alint) [![Dependencies](https://github.com/pmonks/cljig/workflows/dependencies/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Adependencies)
+[![Build](https://github.com/pmonks/cljig/workflows/build/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Abuild) [![Lint](https://github.com/pmonks/cljig/workflows/lint/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Alint) [![Dependencies](https://github.com/pmonks/cljig/workflows/dependencies/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Adependencies) [![Open Issues](https://img.shields.io/github/issues/pmonks/cljig.svg)](https://github.com/pmonks/cljig/issues) [![License](https://img.shields.io/github/license/pmonks/cljig.svg)](https://github.com/pmonks/cljig/blob/main/COPYING)
 
 # cljig
 
