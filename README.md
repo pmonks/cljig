@@ -1,3 +1,4 @@
+[![Build](https://github.com/pmonks/cljig/workflows/build/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Abuild) [![Lint](https://github.com/pmonks/cljig/workflows/lint/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Alint) [![Dependencies](https://github.com/pmonks/cljig/workflows/dependencies/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Adependencies)
 
 # cljig
 
