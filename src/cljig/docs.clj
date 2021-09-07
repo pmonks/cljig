@@ -23,6 +23,7 @@
             [clojure.repl    :as repl]
             [clojure.reflect :as rf]))
 
+#_{:clj-kondo/ignore [:redefined-var]}
 (defn namespace
   "Prints the docstrings of all public vars in the given namespace (provided as a symbol).  Note that the namespace must already have been loaded."
   [ns]
@@ -42,6 +43,7 @@
   (let [nses (mapcat :nses (vals deps))]
     (doall (map namespace nses))))
 
+#_{:clj-kondo/ignore [:redefined-var]}
 (defn methods
   "Handy method for returning all public Java methods in the given class or object.
 

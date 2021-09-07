@@ -25,7 +25,7 @@ user=> (deps/search "multigrep")
 user=> ; Looks nice - let's load the library and have a play
 user=> (def mg-deps (deps/search "multigrep"))
 #'user/mg-deps
-user=> (deps/load mg-deps)
+user=> (deps/load-deps mg-deps)
 Downloading: clj-commons/multigrep/0.5.0/multigrep-0.5.0.pom from clojars
 Downloading: clj-commons/multigrep/0.5.0/multigrep-0.5.0.jar from clojars
 #object[clojure.core$future_call$reify__8477 0x4f9871a2 {:status :pending, :val nil}]

@@ -19,6 +19,7 @@
 
 (ns cljig.deps
   "cljig - fns related to dependencies"
+  {:clj-kondo/config '{:skip-comments true}}
   (:require [clojure.java.io               :as io]
             [clojure.tools.deps.alpha      :as tda]
 ;            [clojure.tools.deps.alpha.repl :as tdar]   ; Awaiting functional add-libs impl
@@ -64,7 +65,7 @@ Notes:
   (tdar/add-libs deps))
 )
 
-(defn load
+(defn load-deps
   "Loads the given deps (a map in tools.deps.alpha deps map format) into the REPL's classloader, downloading their artifacts (and their dependencies) first if necessary."
   [deps]
   (cp/update-classpath! {:extra deps}))
