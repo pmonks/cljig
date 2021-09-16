@@ -28,14 +28,14 @@
 ;        org.clojure/tools.deps.alpha      {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
         org.clojure/tools.namespace       {:mvn/version "1.1.0"}
         org.github.pmonks/find-deps       {:git/url "https://github.com/pmonks/find-deps"       :git/sha "c084830ed73e317ce93c61339986a2082afd3256"}
-        org.github.lambdaisland/classpath {:git/url "https://github.com/lambdaisland/classpath" :git/sha "ff96d4f07d5b12b2fe0d8b206eb4a3713ad222d6"}}
+        org.github.lambdaisland/classpath {:git/url "https://github.com/lambdaisland/classpath" :git/sha "cb786e9956ea169dd1ef50fc5c29959e9025cff8"}}
  :aliases {
     ; clj -M:check
     :check    {:extra-deps {athos/clj-check {:git/url "https://github.com/athos/clj-check.git"
                                              :sha     "518d5a1cbfcd7c952f548e6dbfcb9a4a5faf9062"}}
                :main-opts  ["-m" "clj-check.check"]}
     ; clj -M:outdated
-    :outdated {:extra-deps {com.github.liquidz/antq {:mvn/version "1.0.0"}}
+    :outdated {:extra-deps {com.github.liquidz/antq {:mvn/version "1.0.1"}}
                :main-opts ["-m" "antq.core"]}
     ; clj -M:kondo
     :kondo
