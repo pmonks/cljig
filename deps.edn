@@ -24,22 +24,23 @@
         org.slf4j/jcl-over-slf4j          {:mvn/version "1.7.32"}
         org.slf4j/log4j-over-slf4j        {:mvn/version "1.7.32"}
         org.slf4j/jul-to-slf4j            {:mvn/version "1.7.32"}
-        org.clojure/tools.deps.alpha      {:mvn/version "0.12.1053"}
+        org.clojure/tools.deps.alpha      {:mvn/version "0.12.1067"}
 ;        org.clojure/tools.deps.alpha      {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
         org.clojure/tools.namespace       {:mvn/version "1.1.0"}
-        org.github.pmonks/find-deps       {:git/url "https://github.com/pmonks/find-deps"       :git/sha "c084830ed73e317ce93c61339986a2082afd3256"}
-        org.github.lambdaisland/classpath {:git/url "https://github.com/lambdaisland/classpath" :git/sha "36712c97dfb463270638bd27d92f86c78cb1ed86"}}
+        com.github.pmonks/find-deps       {:git/sha "c084830ed73e317ce93c61339986a2082afd3256"}
+        com.github.lambdaisland/classpath {:git/sha "36712c97dfb463270638bd27d92f86c78cb1ed86"}}
  :aliases {
     ; clj -M:check
-    :check    {:extra-deps {athos/clj-check {:git/url "https://github.com/athos/clj-check.git"
-                                             :sha     "518d5a1cbfcd7c952f548e6dbfcb9a4a5faf9062"}}
-               :main-opts  ["-m" "clj-check.check"]}
+    :check
+      {:extra-deps {com.github.athos/clj-check {:git/sha "518d5a1cbfcd7c952f548e6dbfcb9a4a5faf9062"}}
+       :main-opts  ["-m" "clj-check.check"]}
     ; clj -M:outdated
-    :outdated {:extra-deps {com.github.liquidz/antq {:mvn/version "1.1.0"}}
-               :main-opts ["-m" "antq.core"]}
+    :outdated
+      {:extra-deps {com.github.liquidz/antq {:mvn/version "1.2.0"}}
+       :main-opts ["-m" "antq.core"]}
     ; clj -M:kondo
     :kondo
-      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.09.25"}}
+      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.10.19"}}
        :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]}
     ; clj -M:eastwood
     :eastwood
