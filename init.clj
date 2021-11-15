@@ -16,6 +16,8 @@
 ; You should have received a copy of the GNU Affero General Public License
 ; along with pmonks/cljig.  If not, see <https://www.gnu.org/licenses/>.
 ;
+; SPDX-License-Identifier: AGPL-3.0-or-later
+;
 
 ; Because java.util.logging is a hot mess
 (org.slf4j.bridge.SLF4JBridgeHandler/removeHandlersForRootLogger)
