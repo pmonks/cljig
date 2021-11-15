@@ -16,6 +16,8 @@
 ; You should have received a copy of the GNU Affero General Public License
 ; along with pmonks/cljig.  If not, see <https://www.gnu.org/licenses/>.
 ;
+; SPDX-License-Identifier: AGPL-3.0-or-later
+;
 
 (ns cljig.web
   "cljig - fns related to the web")
@@ -78,7 +80,7 @@
 
 (defn javadoc
   "Attempts to find and open javadoc for the given Java class (a symbol or String), optionally for the given Java version (defaults to the latest LTS)."
-  ([java-class]              (cljig.web/javadoc java-class 11))
+  ([java-class]              (cljig.web/javadoc java-class 17))
   ([java-class java-version] (lucky (str "java " java-version " javadoc " java-class))))
 
 (defn open-slack-web
