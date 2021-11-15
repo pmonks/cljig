@@ -20,14 +20,14 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure               {:mvn/version "1.10.3"}
         org.clojure/tools.logging         {:mvn/version "1.1.0"}
-        ch.qos.logback/logback-classic    {:mvn/version "1.2.6"}
+        ch.qos.logback/logback-classic    {:mvn/version "1.2.7"}
         org.slf4j/jcl-over-slf4j          {:mvn/version "1.7.32"}
         org.slf4j/log4j-over-slf4j        {:mvn/version "1.7.32"}
         org.slf4j/jul-to-slf4j            {:mvn/version "1.7.32"}
-        org.clojure/tools.deps.alpha      {:mvn/version "0.12.1067"}
+        org.clojure/tools.deps.alpha      {:mvn/version "0.12.1071"}
 ;        org.clojure/tools.deps.alpha      {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
         org.clojure/tools.namespace       {:mvn/version "1.1.0"}
-        com.github.pmonks/find-deps       {:git/sha "c084830ed73e317ce93c61339986a2082afd3256"}
+        com.github.pmonks/find-deps       {:git/sha "0bc5bcd9d21dcc10de9134f4e228d85dc70ab512"}
         com.github.lambdaisland/classpath {:git/sha "36712c97dfb463270638bd27d92f86c78cb1ed86"}}
  :aliases {
     ; clj -M:check
