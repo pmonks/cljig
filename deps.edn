@@ -26,7 +26,7 @@
         org.slf4j/jcl-over-slf4j          {:mvn/version "1.7.32"}
         org.slf4j/log4j-over-slf4j        {:mvn/version "1.7.32"}
         org.slf4j/jul-to-slf4j            {:mvn/version "1.7.32"}
-        org.clojure/tools.deps.alpha      {:mvn/version "0.12.1071"}
+        org.clojure/tools.deps.alpha      {:mvn/version "0.12.1084"}
 ;        org.clojure/tools.deps.alpha      {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
         org.clojure/tools.namespace       {:mvn/version "1.1.0"}
         com.github.pmonks/find-deps       {:git/sha "0bc5bcd9d21dcc10de9134f4e228d85dc70ab512"}
@@ -38,11 +38,11 @@
        :main-opts  ["-m" "clj-check.check"]}
     ; clj -M:outdated
     :outdated
-      {:extra-deps {com.github.liquidz/antq {:mvn/version "1.2.0"}}
+      {:extra-deps {com.github.liquidz/antq {:mvn/version "1.3.0"}}
        :main-opts ["-m" "antq.core"]}
     ; clj -M:kondo
     :kondo
-      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.10.19"}}
+      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.12.01"}}
        :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]}
     ; clj -M:eastwood
     :eastwood
