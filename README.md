@@ -1,4 +1,4 @@
-[![Build](https://github.com/pmonks/cljig/workflows/build/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Abuild) [![Lint](https://github.com/pmonks/cljig/workflows/lint/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Alint) [![Dependencies](https://github.com/pmonks/cljig/workflows/dependencies/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Adependencies) [![Open Issues](https://img.shields.io/github/issues/pmonks/cljig.svg)](https://github.com/pmonks/cljig/issues) [![License](https://img.shields.io/github/license/pmonks/cljig.svg)](https://github.com/pmonks/cljig/blob/main/COPYING)
+[![CI](https://github.com/pmonks/cljig/workflows/CI/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3ACI+branch%3Amain) [![Dependencies](https://github.com/pmonks/cljig/workflows/dependencies/badge.svg?branch=main)](https://github.com/pmonks/cljig/actions?query=workflow%3Adependencies+branch%3Amain) [![Open Issues](https://img.shields.io/github/issues/pmonks/cljig.svg)](https://github.com/pmonks/cljig/issues) [![License](https://img.shields.io/github/license/pmonks/cljig.svg)](https://github.com/pmonks/cljig/blob/main/COPYING)
 
 # cljig
 
@@ -16,12 +16,12 @@ This will load some useful namespaces, display some help, the drop you in a REPL
 
 ### Example
 ```clojure
-user=> (web/search-github "grep")
+user=> (web/search-github "gravity")
 nil
-user=> ; Browser opens, showing Clojure libraries that match "grep" known to GitHub
-user=> ; clj-commons/multigrep catches our eye...
-user=> (deps/search "multigrep")
-{:deps #:clj-commons{multigrep #:mvn{:version "0.5.0"}}}
+user=> ; Browser opens, showing Clojure repositories on GitHub that match "gravity"
+user=> ; pmonks/gravity catches our eye...
+user=> (deps/search "pmonks/gravity" 10)
+{:deps {clj-commons/multigrep #:mvn{:version "1.0.128"}, org.clojars.pmonks/multigrep #:mvn{:version "0.4.0"}, com.github.pmonks/multigrep #:mvn{:version "1.0.135"}}}
 user=> ; Looks nice - let's load the library and have a play
 user=> (def mg-deps (deps/search "multigrep"))
 #'user/mg-deps
