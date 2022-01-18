@@ -29,7 +29,7 @@
         org.clojure/tools.deps.alpha      {:mvn/version "0.12.1109"}
 ;        org.clojure/tools.deps.alpha      {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
         org.clojure/tools.namespace       {:mvn/version "1.2.0"}
-        com.github.pmonks/find-deps       {:git/sha "a847e34e39fcc794473d279c645cd8e7a8a74992"}
+        com.github.pmonks/find-deps       {:git/sha "f81b1484dd8ab3172ed3e7303a980b74d515c534"}
         com.github.lambdaisland/classpath {:git/sha "36712c97dfb463270638bd27d92f86c78cb1ed86"}}
  :aliases {
     ; clj -M:check
