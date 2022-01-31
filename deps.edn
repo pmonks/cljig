@@ -23,13 +23,13 @@
  :deps {org.clojure/clojure               {:mvn/version "1.10.3"}
         org.clojure/tools.logging         {:mvn/version "1.2.4"}
         ch.qos.logback/logback-classic    {:mvn/version "1.2.10"}
-        org.slf4j/jcl-over-slf4j          {:mvn/version "1.7.33"}
-        org.slf4j/log4j-over-slf4j        {:mvn/version "1.7.33"}
-        org.slf4j/jul-to-slf4j            {:mvn/version "1.7.33"}
-        org.clojure/tools.deps.alpha      {:mvn/version "0.12.1109"}
+        org.slf4j/jcl-over-slf4j          {:mvn/version "1.7.35"}
+        org.slf4j/log4j-over-slf4j        {:mvn/version "1.7.35"}
+        org.slf4j/jul-to-slf4j            {:mvn/version "1.7.35"}
+        org.clojure/tools.deps.alpha      {:mvn/version "0.12.1120"}
 ;        org.clojure/tools.deps.alpha      {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
         org.clojure/tools.namespace       {:mvn/version "1.2.0"}
-        com.github.pmonks/find-deps       {:git/sha "f81b1484dd8ab3172ed3e7303a980b74d515c534"}
+        com.github.pmonks/find-deps       {:git/sha "6977067f19f9196bd3b38aa28ced4166406ba4c3"}
         com.github.lambdaisland/classpath {:git/sha "36712c97dfb463270638bd27d92f86c78cb1ed86"}}
  :aliases {
     ; clj -M:check
@@ -46,6 +46,6 @@
        :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]}
     ; clj -M:eastwood
     :eastwood
-      {:extra-deps {jonase/eastwood {:mvn/version "1.2.0"}}
+      {:extra-deps {jonase/eastwood {:mvn/version "1.2.2"}}
        :main-opts  ["-m" "eastwood.lint" {:source-paths ["src" "resources"]}]}
     }}
