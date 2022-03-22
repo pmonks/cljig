@@ -26,7 +26,7 @@
         org.slf4j/jcl-over-slf4j          {:mvn/version "1.7.36"}
         org.slf4j/log4j-over-slf4j        {:mvn/version "1.7.36"}
         org.slf4j/jul-to-slf4j            {:mvn/version "1.7.36"}
-        org.clojure/tools.deps.alpha      {:mvn/version "0.12.1158"}
+        org.clojure/tools.deps.alpha      {:mvn/version "0.12.1162"}
 ;        org.clojure/tools.deps.alpha      {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
         org.clojure/tools.namespace       {:mvn/version "1.2.0"}
         com.github.pmonks/find-deps       {:git/sha "6977067f19f9196bd3b38aa28ced4166406ba4c3"}
