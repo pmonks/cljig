@@ -20,13 +20,13 @@
 ;
 
 {:paths ["src" "resources"]
- :deps {org.clojure/clojure               {:mvn/version "1.11.0"}
+ :deps {org.clojure/clojure               {:mvn/version "1.11.1"}
         org.clojure/tools.logging         {:mvn/version "1.2.4"}
         ch.qos.logback/logback-classic    {:mvn/version "1.2.11"}
         org.slf4j/jcl-over-slf4j          {:mvn/version "1.7.36"}
         org.slf4j/log4j-over-slf4j        {:mvn/version "1.7.36"}
         org.slf4j/jul-to-slf4j            {:mvn/version "1.7.36"}
-        org.clojure/tools.deps.alpha      {:mvn/version "0.13.1168"}
+        org.clojure/tools.deps.alpha      {:mvn/version "0.14.1173"}
 ;        org.clojure/tools.deps.alpha      {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
         org.clojure/tools.namespace       {:mvn/version "1.2.0"}
         com.github.pmonks/find-deps       {:git/sha "6977067f19f9196bd3b38aa28ced4166406ba4c3"}
@@ -38,11 +38,11 @@
        :main-opts  ["-m" "clj-check.check"]}
     ; clj -M:outdated
     :outdated
-      {:extra-deps {com.github.liquidz/antq {:mvn/version "1.6.0"}}
+      {:extra-deps {com.github.liquidz/antq {:mvn/version "1.6.1"}}
        :main-opts ["-m" "antq.core"]}
     ; clj -M:kondo
     :kondo
-      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2022.03.09"}}
+      {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2022.04.08"}}
        :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]}
     ; clj -M:eastwood
     :eastwood
