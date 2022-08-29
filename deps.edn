@@ -22,15 +22,15 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure               {:mvn/version "1.11.1"}
         org.clojure/tools.logging         {:mvn/version "1.2.4"}
-        ch.qos.logback/logback-classic    {:mvn/version "1.2.11"}
-        org.slf4j/jcl-over-slf4j          {:mvn/version "1.7.36"}
-        org.slf4j/log4j-over-slf4j        {:mvn/version "1.7.36"}
-        org.slf4j/jul-to-slf4j            {:mvn/version "1.7.36"}
+        ch.qos.logback/logback-classic    {:mvn/version "1.4.0"}
+        org.slf4j/jcl-over-slf4j          {:mvn/version "2.0.0"}
+        org.slf4j/log4j-over-slf4j        {:mvn/version "2.0.0"}
+        org.slf4j/jul-to-slf4j            {:mvn/version "2.0.0"}
         org.clojure/tools.deps.alpha      {:mvn/version "0.14.1222"}
 ;        org.clojure/tools.deps.alpha      {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
         org.clojure/tools.namespace       {:mvn/version "1.3.0"}
         com.github.pmonks/find-deps       {:git/sha "6977067f19f9196bd3b38aa28ced4166406ba4c3"}
-        com.github.lambdaisland/classpath {:git/sha "fc85b1d7858c95d32e517fd64e5dbecd2002bb71"}}
+        com.github.lambdaisland/classpath {:git/sha "63fbf172886724692ceaf0b50285fd440df001df"}}
  :aliases {
     ; clj -M:check
     :check
