@@ -23,9 +23,9 @@
  :deps {org.clojure/clojure               {:mvn/version "1.11.1"}
         org.clojure/tools.logging         {:mvn/version "1.2.4"}
         ch.qos.logback/logback-classic    {:mvn/version "1.4.5"}
-        org.slf4j/jcl-over-slf4j          {:mvn/version "2.0.4"}
-        org.slf4j/log4j-over-slf4j        {:mvn/version "2.0.4"}
-        org.slf4j/jul-to-slf4j            {:mvn/version "2.0.4"}
+        org.slf4j/jcl-over-slf4j          {:mvn/version "2.0.5"}
+        org.slf4j/log4j-over-slf4j        {:mvn/version "2.0.5"}
+        org.slf4j/jul-to-slf4j            {:mvn/version "2.0.5"}
         org.clojure/tools.deps.alpha      {:mvn/version "0.15.1254"}
 ;        org.clojure/tools.deps.alpha      {:git/url "https://github.com/clojure/tools.deps.alpha" :sha "02809dbd41d4fe6e269ee67316d054a04bc70678"}   ; add-lib branch - NON-FUNCTIONAL!
         org.clojure/tools.namespace       {:mvn/version "1.3.0"}
