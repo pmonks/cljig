@@ -5,6 +5,8 @@
 A little Clojure [jig](https://en.wikipedia.org/wiki/Jig_(tool)) for discovering, evaluating, and prototyping 3rd party
 Clojure and Java libraries, for eventual use in your own project(s), all from the REPL.
 
+**Important note: this started out as a little "weekend experiment" which quickly ran out of steam. These days you're better off looking at something like [babashka + add-deps](https://book.babashka.org/#babashkadeps) for a more comprehensive and battle-tested equivalent.**
+
 ## Trying it Out
 Clone the repo, then run:
 
