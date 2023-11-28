@@ -22,7 +22,7 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure               {:mvn/version "1.11.1"}
         org.clojure/tools.logging         {:mvn/version "1.2.4"}
-        ch.qos.logback/logback-classic    {:mvn/version "1.4.11"}
+        ch.qos.logback/logback-classic    {:mvn/version "1.4.13"}
         org.slf4j/jcl-over-slf4j          {:mvn/version "2.0.9"}
         org.slf4j/log4j-over-slf4j        {:mvn/version "2.0.9"}
         org.slf4j/jul-to-slf4j            {:mvn/version "2.0.9"}
@@ -46,6 +46,6 @@
        :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]}
     ; clj -M:eastwood
     :eastwood
-      {:extra-deps {jonase/eastwood {:mvn/version "1.4.0"}}
+      {:extra-deps {jonase/eastwood {:mvn/version "1.4.2"}}
        :main-opts  ["-m" "eastwood.lint" {:source-paths ["src" "resources"]}]}
     }}
